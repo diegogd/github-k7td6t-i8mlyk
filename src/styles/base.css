@@ -166,7 +166,13 @@ img.logo:hover {
 
 .art-preview .art-picture {
   width: 100%;
-  height: 100px;
+  height: 150px;
+  background-color: gray;
+  overflow: hidden;
+}
+
+.art-preview .art-picture img {
+  width: 100%;
   background-color: gray;
 }
 
@@ -184,8 +190,12 @@ img.logo:hover {
 
 .art-detail .art-picture {
   width: 100%;
-  height: 400px;
+  min-height: 400px;
   background-color: gray;
+}
+
+.art-detail .art-picture img {
+  width: 100%;
 }
 
 .art-detail .description {
@@ -241,4 +251,21 @@ img.logofront {
 .blogpost:hover {
   background: linear-gradient(90deg, var(--color4), var(--color5));
   cursor: pointer;
+}
+
+.contactblock {
+  display: grid;
+  grid-template-columns: 1fr 640px;
+}
+
+.contactblock .info {
+  padding-top: 3em;
+}
+
+.contactblock .info ul {
+  padding-left: 3em;
+}
+
+.contactblock .info p {
+  margin-bottom: 1em;
 }

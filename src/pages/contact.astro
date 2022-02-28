@@ -4,11 +4,26 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 <BaseLayout title="Homepage">
   <h1>Contacto</h1>
-  <p>Información de contacto del autor</p>
-  <p>Puedes contactarme a través de los siguientes medios:</p>
-  <ul>
-    <li>Email</li>
-    <li>Twitter</li>
-    <li>Formulario (por llegar)</li>
-  </ul>
+
+  <div class="contactblock">
+    <div class="info">
+      <p>
+      Si tienes interés en contactar al autor de esta página
+      puedes hacerlo a través del formulario de la derecha.
+      </p>
+      <p>
+      Aporta información de contacto para que te pueda responder.
+      </p>
+
+      <p>
+      También puedes contactarme a través de las siguientes redes sociales:
+      </p>
+      <ul>        
+        <li>Twitter</li>
+        <li>Instagram</li>        
+        <li>My Public Inbox</li>
+      </ul>
+    </div>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAQ0juWq3Gcnit8pqcuu9_YMztnqW8KpLRKX63zNQ1-xqoBA/viewform?embedded=true" width="640" height="610" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
 </BaseLayout>
