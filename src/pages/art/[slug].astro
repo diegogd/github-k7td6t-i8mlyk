@@ -1,0 +1,27 @@
+---
+// src/pages/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: '1' }, props: { title: 'Obra 1', description: 'Información de mi primera obra', image: 'https://dl.airtable.com/.attachments/de809ba2d1b70b0d06ee8709536a8b1c/ff56dfe3/final71.jpg' } },
+    { params: { slug: '2' }, props: { title: 'Obra 2', description: 'Información de mi segunda obra', image: 'https://dl.airtable.com/.attachments/6681849d1c742b448a6aed024b750626/09a36e28/final81.jpg' } },
+  ];
+}
+
+const {slug} = Astro.request.params;
+const art = Astro.props;
+---
+<BaseLayout title="Homepage">
+  <h1>{art.title}</h1>
+  
+  <div class="art-detail">
+    <div class="art-picture">
+    
+    {art.image}
+    </div>
+    <div class="description">
+    {art.description}
+    </div>
+  </div>
+</BaseLayout>
