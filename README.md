@@ -1,3 +1,3 @@
-# github-k7td6t-i8mlyk
+# AI que arte
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/github-k7td6t-i8mlyk)
+Web de ejemplo usando ASTRO y con conexión a servidor.
