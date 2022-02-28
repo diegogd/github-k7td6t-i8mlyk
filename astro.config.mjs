@@ -11,7 +11,7 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
 	// Comment out "renderers: []" to enable Astro's default component support.
 	renderers: [],
 	public: 'static',
-	dist: 'public',
+	dist: 'dist',
 	buildOptions: {
 		sitemap: true,
 		site: 'https://github-k7td6t-i8mlyk.vercel.app/',
