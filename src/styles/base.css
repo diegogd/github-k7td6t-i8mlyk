@@ -26,6 +26,17 @@ body {
   color: var(--color2);
 }
 
+p, li {
+  margin-bottom: 1.4em;
+  line-height: 1.6em;
+}
+
+li {
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+
 h1,
 h2,
 h3,
@@ -35,6 +46,12 @@ h6 {
   color: var(--color5);
   font-family: var(--font2);
   margin-bottom: 0.5em;
+}
+
+h1 a {
+  color: var(--color5);
+  font-family: var(--font2);
+  text-decoration: none;
 }
 
 #header {
@@ -131,6 +148,10 @@ h6 {
   margin-top: 2em;
 }
 
+.foot p {
+  margin-bottom: 1em;
+}
+
 .foot .links ul {
   display: flex;
   flex-direction: row;
@@ -138,6 +159,10 @@ h6 {
   margin: 2em auto;
   width: 100%;
   justify-content: center;
+}
+
+.foot a {
+  color: var(--fg-dark);
 }
 
 .links ul li {
@@ -183,6 +208,17 @@ img.logo:hover {
   padding-top: 0.5em;
 }
 
+.art-preview .title {
+  display: block;
+  line-height: 1.2em;
+  text-align: center;
+  background-color: var(--color2);
+  opacity: 0.6;
+  color: var(--fg-dark);
+  margin-top: -2em;
+  padding: 0.3em;
+}
+
 .art-detail {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -201,8 +237,13 @@ img.logo:hover {
 
 .art-detail .description {
   display: block;
-  font-size: 1em;
+  font-size: 1em;  
+  padding: 1em;
   padding-top: 0.5em;
+}
+
+.art-detail .description p {
+  margin-bottom: 1em;
 }
 
 img.logofront {
@@ -276,5 +317,20 @@ img.logofront {
 }
 
 .blogentry p {
-  margin-bottom: 1em;
+  margin-bottom: 1em;  
 }
+
+.blogentry p.overview {
+  font-size: 1.4em;
+  
+}
+
+.blogentry .postfoot {
+  margin-top: 3em;
+  opacity: 0.8;
+}
+
+.last-image img {
+  width: 200px;
+}
+

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import { Markdown } from 'astro/components'
 import Airtable from 'airtable';
 
 export async function getStaticPaths() {
@@ -23,14 +24,19 @@ const {slug} = Astro.request.params;
 const art = Astro.props;
 ---
 <BaseLayout title="Homepage">
-  <h1>{art.Name}</h1>
+  <h1>
+  <a href="/arts">Obras</a> &lt;
+   {art.Name}
+  </h1>
   
   <div class="art-detail">
     <div class="art-picture">
       <img src={art.Attachments[0].url}/>      
     </div>
     <div class="description">
-    {art.Notes}    
+        <Markdown>
+          {art.Notes}    
+        </Markdown>    
     </div>
   </div>
 </BaseLayout>

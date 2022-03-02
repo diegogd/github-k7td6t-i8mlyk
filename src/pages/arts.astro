@@ -30,14 +30,10 @@ const artitems = elements.map((record) => ({
         <img src={item.props.Attachments[0].thumbnails.large.url} />
         </div>
       </a>
-      <div class="description">
-        {item.props.Notes}
+      <div class="title">
+        {item.props.Name}
       </div>
     </div>
   ))}
-
-  
-  
-  
 </div>
 </BaseLayout>

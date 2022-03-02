@@ -2,6 +2,7 @@
 // src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Logo from '../assets/logo.svg'
+import LastImages from '../components/LastImages.astro'
 ---
 <BaseLayout title="Homepage">  
   <img src={Logo} class="logofront" />
@@ -10,15 +11,7 @@ import Logo from '../assets/logo.svg'
   <h2>Últimas imágenes incorporadas</h2>
 
   <div class="imagesfront">
-    <div>
-      <img src="https://picsum.photos/seed/abc/200/300"/>
-    </div>
-    <div>
-      <img src="https://picsum.photos/seed/cde/200/300"/>
-    </div>
-    <div>
-      <img src="https://picsum.photos/seed/aaa/200/300"/>
-    </div>
+    <LastImages></LastImages>    
   </div>
 
   <h3>Últimas entradas en el blog</h3>

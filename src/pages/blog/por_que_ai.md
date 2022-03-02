@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPost.astro
+layout: ../../layouts/BlogPostLayout.astro
 title: ¿Por qué AI?
 draft: false
 date: 2022/02/27

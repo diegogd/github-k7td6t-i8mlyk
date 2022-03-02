@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPost.astro
+layout: ../../layouts/BlogPostLayout.astro
 title: Arranca AI que Arte
 draft: false
 date: 2022/02/28
