@@ -19,7 +19,9 @@ const items = elements.map((record) => ({
 
 ---
     
-    {items.map((item) => (
+    {items && items.filter((item) => {
+        return item.props.Attachments && item.props.Attachments.length > 0
+    }).map((item) => (
         <div class="last-image">
             <a href={`/art/${item.params.id}`}>
                 <img src={item.props.Attachments[0].url}/>

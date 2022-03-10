@@ -1,0 +1,22 @@
+---
+const allPosts = Astro.fetchContent('../pages/blog/*.md');
+
+const lastPosts = allPosts.sort((a,b) => {
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+}).slice(0, 4);
+---
+
+<h3>Últimas entradas en el blog</h3>
+<div class="blogposts">
+    {lastPosts.map((post) => (
+        <div>        
+            <a href={post.url}>
+                <div class="blogpost">
+                <div class="title">
+                {post.title}
+                </div>
+                </div>
+            </a> 
+        </div>   
+    ))}
+</div>

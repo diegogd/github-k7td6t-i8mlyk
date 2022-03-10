@@ -18,9 +18,25 @@ allPosts.sort((a,b) => {
       <div class="content">
         <p>{post.short}</p>
       </div>
-      <a href={post.url}>Leer más</a> <small class="date">{post.date}</small>
+      <a class="readmore" href={post.url}>Leer más</a> <small class="date">{post.date}</small>
     </div>  
   ))}
 
   
 </BaseLayout>
+
+<style>
+.blog-post {
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.readmore {
+  transition: 200ms;
+}
+
+.readmore:hover {
+  font-size: 1.1em;
+  transition: 200ms;
+}
+</style>

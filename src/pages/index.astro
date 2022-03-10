@@ -3,6 +3,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Logo from '../assets/logo.svg'
 import LastImages from '../components/LastImages.astro'
+import LastBlogPosts from '../components/LastBlogPosts.astro'
 ---
 <BaseLayout title="Homepage">  
   <img src={Logo} class="logofront" />
@@ -14,31 +15,5 @@ import LastImages from '../components/LastImages.astro'
     <LastImages></LastImages>    
   </div>
 
-  <h3>Últimas entradas en el blog</h3>
-  <div class="blogposts">
-    <a href="/blog/arranca_ai_que_arte">
-      <div class="blogpost">
-        <div class="title">
-        Arranca ¡AI qué arte!
-        </div>
-      </div>
-    </a>
-    <a href="/blog/por_que_ai">
-      <div class="blogpost">
-        <div class="title">
-        ¿Por qué AI y no AY?
-        </div>
-      </div>
-    </a>
-    <div class="blogpost">
-      <div class="title">
-        OpenAI
-      </div>
-    </div>
-    <div class="blogpost">
-      <div class="title">
-        Python y AI
-      </div>
-    </div>    
-  </div>
+  <LastBlogPosts></LastBlogPosts>  
 </BaseLayout>
