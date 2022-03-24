@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { Markdown } from 'astro/components'
+import Airtable from 'airtable';
+
+export async function getStaticPaths() {
+  let apiKey = import.meta.env.AIRTABLE_API_KEY;  
+  let dbID = import.meta.env.AIRTABLE_DB_ID;
+  
+  let airtable = new Airtable({apiKey}).base(dbID);
+
+  let elements = await airtable('Collection').select({
+    view: 'Grid view'
+  }).firstPage();
+
+  return await Promise.all(elements.map(async (record) => {
+    let collectionObject : any = {
+      params: { collectionID: record.id },
+      props: {        
+        ...record.fields
+      }
+    };
+
+    if(record.fields.Art instanceof Array) {
+      let artItems = await Promise.all(
+        record.fields.Art.map(async(artItem) => {
+          return airtable('Art').find(artItem);
+        })
+      );
+
+      collectionObject.props['arts'] = artItems.map(art => ({
+        params: { id: art.id },
+        props: {
+          ...art.fields
+        }
+      }))
+
+      delete collectionObject.props['Art'];
+    }
+
+    console.log(collectionObject);
+
+    return collectionObject;
+  }));
+}
+
+// const {aid} = Astro.request.params;
+const collectionItem = Astro.props;
+---
+
+<BaseLayout title="Homepage">
+<h1>Obras de arte de {collectionItem.Name}</h1>
+<div class="list-of-arts">
+
+  {collectionItem.arts && collectionItem.arts.map((item) => (
+    <div class="art-preview">
+      <a href={`/arts/${item.params.id}`}>
+        <div class="art-picture">
+        <img src={item.props.Attachments[0].thumbnails.large.url} />
+        </div>
+      </a>
+      <div class="title">
+        {item.props.Name}
+      </div>
+    </div>
+  ))}
+</div>
+</BaseLayout>

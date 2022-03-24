@@ -1,12 +1,10 @@
 ---
-// src/pages/index.astro
-import BaseLayout from '../layouts/BaseLayout.astro'
-
+import BaseLayout from '../../layouts/BaseLayout.astro'
 import Airtable from 'airtable';
 
-
 let apiKey = import.meta.env.AIRTABLE_API_KEY;  
-let airtable = new Airtable({apiKey}).base('appQRvIgRbgoETqQs');
+let dbID = import.meta.env.AIRTABLE_DB_ID;
+let airtable = new Airtable({apiKey}).base(dbID);
 
 let elements = await airtable('Art').select({
   view: 'Grid view'
@@ -18,14 +16,14 @@ const artitems = elements.map((record) => ({
     ...record.fields
   }
 }));
-
 ---
+
 <BaseLayout title="Homepage">
 <h1>Obras de arte</h1>
 <div class="list-of-arts">
   {artitems && artitems.map((item) => (
     <div class="art-preview">
-      <a href={`/art/${item.params.id}`}>
+      <a href={`/arts/${item.params.id}`}>
         <div class="art-picture">
         <img src={item.props.Attachments[0].thumbnails.large.url} />
         </div>

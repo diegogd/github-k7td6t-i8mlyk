@@ -1,0 +1,53 @@
+---
+// src/pages/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+import Airtable from 'airtable';
+
+let apiKey = import.meta.env.AIRTABLE_API_KEY;  
+let dbID = import.meta.env.AIRTABLE_DB_ID;
+let airtable = new Airtable({apiKey}).base(dbID);
+
+let elements = await airtable('Collection').select({
+  view: 'Grid view'
+}).firstPage();
+
+const collections = elements.map((record) => ({
+  params: { collectionID: record.id },
+  props: {
+    ...record.fields
+  }
+}));
+
+---
+<BaseLayout title="Homepage">
+<h1>Colecciones de obras de arte</h1>
+<div class="list-of-collections" >
+  {collections && collections.map((item) => (
+    <a href={`/collections/${item.params.collectionID}`}>
+      <div class="collection-preview" style={`background-color: ${item.props.Color}`}>
+        <div class="title">
+          {item.props.Name}
+        </div>
+      </div>
+    </a>
+  ))}
+</div>
+</BaseLayout>
+
+<style>
+
+.list-of-collections {
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-preview {
+  padding: 2em;
+  border-radius: 1em;
+  border: 1px solid;
+  margin-bottom: 1.2em;
+  color: white;
+  font-size: 1.4em;
+}
+</style>
